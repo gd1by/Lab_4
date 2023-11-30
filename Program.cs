@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 
+// Класс для представления матрицы
 class Matrix
 {
-
-    private int rows;
-    private int columns;
-    private double[,] elements;
+    private int rows;          // Количество строк в матрице
+    private int columns;       // Количество столбцов в матрице
+    private double[,] elements; // Элементы матрицы
 
     // Конструктор для создания матрицы
     public Matrix(int rows, int columns, double[] values)
@@ -14,6 +14,7 @@ class Matrix
         this.columns = columns;
         this.elements = new double[rows, columns];
 
+        // Заполнение матрицы значениями из массива values
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < columns; j++)
@@ -162,7 +163,8 @@ class Matrix
 
         return new Matrix(a.rows, a.columns, resultValues);
     }
-    // Добавьте этот метод в класс Matrix
+
+    // Метод для умножения матрицы на скаляр
     public Matrix MultiplyByScalar(double scalar)
     {
         double[] resultValues = new double[rows * columns];
@@ -176,7 +178,6 @@ class Matrix
 
         return new Matrix(rows, columns, resultValues);
     }
-
 }
 
 class Program
@@ -194,21 +195,7 @@ class Program
         Console.WriteLine("Матрица D:");
         D.PrintMatrix();
 
+        // Проверяем свойства матрицы D
         if (D.IsIdentityMatrix())
         {
-            Console.WriteLine("Матрица D является единичной.");
-        }
-        else if (D.IsDiagonalMatrix())
-        {
-            Console.WriteLine("Матрица D является диагональной.");
-        }
-        else if (D.IsZeroMatrix())
-        {
-            Console.WriteLine("Матрица D является нулевой.");
-        }
-        else
-        {
-            Console.WriteLine("Матрица D не соответствует ни одному из указанных условий.");
-        }
-    }
-}
+            Console.WriteLine("Матрица D является е
